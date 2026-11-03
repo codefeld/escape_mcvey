@@ -6,6 +6,7 @@ public class PuzzleRoom extends Room {
 	private ArrayList<PuzzleOption> options;
 
 	// Abstract Methods
+	@Override
 	public void displayMessage(Object messageObj) {
 		System.out.println(messageObj);
 	}
