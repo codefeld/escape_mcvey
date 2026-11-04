@@ -8,12 +8,16 @@ public class Exam {
     private String questionFileName;
     private ArrayList<Question> questions;
 
-    public Exam(int numQ, String file) {
-        setNumQuestions(numQ);
+    /**
+     * Constrcutor that intializes file and blank list of questions
+     * @param file The name of teh file to get questions from
+     */
+    public Exam(String file) {
+        setNumQuestions(0);
         setQuestionFileName(file);
         // Create **empty** ArrayList of Questions
         // Add individual questions using addQuestion() method
-        setQuestions(new ArrayList<Question>(numQ));
+        setQuestions(new ArrayList<Question>());
 
     }
 
@@ -64,10 +68,16 @@ public class Exam {
         if (q != null && questions.size() < this.numQuestions) {
             this.questions.add(q);
         }
+        setNumQuestions(getNumQuestions() + 1);
     }
 
+    /**
+     * Get question by the ist INDEX
+     * @param questNum The index
+     * @return
+     */
     public Question getQuestion(int questNum) {
-        return questions.get(questNum - 1);
+        return questions.get(questNum + 1);
     }
 
     public void setQuestionFileName(String file) {
