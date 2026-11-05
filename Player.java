@@ -1,5 +1,4 @@
 public class Player {
-    
     protected double gpa;
     protected int happiness;
     //protected ArrayList<Item> inventory
@@ -37,5 +36,4 @@ public class Player {
         if(this.creditHours < 0){this.creditHours = 0;}
     }
 
-    
 }
