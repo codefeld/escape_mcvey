@@ -1,3 +1,3 @@
-public class StudyRoom {
+public class StudyRoom extends Room{
 
 }
