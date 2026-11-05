@@ -7,4 +7,9 @@ public class PlayerInput {
         System.out.println(displayQuestion);
         return sc.nextLine();
     }
+
+    // Temporary Method, make decison later
+    public static int makeChoice(int choice) {
+        return sc.nextInt();
+    }
 }

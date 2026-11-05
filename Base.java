@@ -34,5 +34,8 @@ public class Base {
         if(i == 1){return new PuzzleRoom();}
         if(i == 2){return new CombatRoom();}
         if(i == 3){return new StudyRoom();}
+
+        // If all others are false, use combat as defualt
+        return new CombatRoom();
     }
 }

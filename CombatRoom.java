@@ -3,6 +3,19 @@ public class CombatRoom extends Room{
 
     public CombatRoom(int type, int cr, String n, Exam ex) {
         super(type, cr, n);
+        setExam(ex);
+    }
+
+    public CombatRoom() {
+        Question q = new Question("How old am I?", "12", "54", "20", 3);
+        Question q2 = new Question("What year is it?", "1776", "2026", "1812", 2);
+        Question q3 = new Question("Who is the professor?", "Kaylynn Borror", "Kaylynn Boring", "Katelynn Border", 1);
+        Exam e = new Exam("file");
+        e.addQuestion(q);
+        e.addQuestion(q2);
+        e.addQuestion(q3);
+        this(1, 0, "Mysterious Room", e);
+
     }
 
     // Methods
@@ -30,8 +43,8 @@ public class CombatRoom extends Room{
         int questionNum = 0;
 
         // Intro messages
-        System.out.println("You entered " + this.getName() + "!");
-        System.out.println("An exam awaits you.");
+        System.out.println("\nYou entered " + this.getName() + "!");
+        System.out.println("An exam awaits you.\n");
         
         // Loop until every questions has been answered
         while(questionNum < exam.getNumQuestions()) {
@@ -40,18 +53,19 @@ public class CombatRoom extends Room{
             displayMessage(exam.getQuestion(questionNum));
 
             // Answer the question
-            System.out.println("Enter your answer as either \'1\'', \'2\'', or \'3\': ");
+            System.out.println("Enter your answer as either \'1\', \'2\', or \'3\': ");
             // Double check if use PlayerINput.makeChoice() or object like I did here
             boolean correct = exam.getQuestion(questionNum).answerQuestion(PlayerInput.makeChoice(3));
 
             if(correct) {
-                System.out.println("That's correct!");
+                System.out.println("That's correct, smarty pants!\n");
                 //player.setGPA(player.getGPA() + 0.25f);  
             } else {
+                System.out.println("That's wrong, dumb, dumb!\n");
                 //player.changeGPA(player.getGPA() - 0.25f);
             }
 
-            // MOve to next question
+            // Move to next question
             questionNum++;
         }
 
@@ -66,11 +80,11 @@ public class CombatRoom extends Room{
         return this.exam;
     }
 
-    public void setExam(Exam ex) throws Exception {
+    public void setExam(Exam ex) {
         if(ex != null) {
             this.exam = ex;
         } else {
-            throw new Exception("Exam cannot be null");
+            System.out.println("Exam cannot be null");
         }
         
     }

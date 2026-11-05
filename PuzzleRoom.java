@@ -27,4 +27,9 @@ public class PuzzleRoom extends Room {
 			System.out.println(Integer.toString(i) + ") " + options.get(i).getName());
 		}
 	}
+
+	@Override
+	public void runRoom(Player player) {
+		System.out.println("A puzzle room");
+	}
 }
