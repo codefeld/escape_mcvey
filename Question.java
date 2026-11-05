@@ -98,7 +98,7 @@ public class Question {
     }
 
     public void setCorrectAnswer(int answer) {
-        // Only allow valid answer options
+        // Only allow valid answer options (1-3)
         if(answer > 0 && answer < 4) {
             this.correctAnswer = answer;
         } else {

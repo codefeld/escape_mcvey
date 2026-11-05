@@ -4,6 +4,7 @@ public abstract class Room {
     private int roomType;
     private final int creditHours;
     private String name;
+    private PlayerInput input;
 
     // Constructors
     
@@ -52,6 +53,12 @@ public abstract class Room {
      */
     public abstract void displayMessage(Object messageObj);
 
+    /**
+     * Runs the functioanlity of the room
+     * @param player The player accessing the room
+     */
+    public abstract void runRoom(Player player);
+
     // Getters and setters
 
     /**
@@ -99,6 +106,14 @@ public abstract class Room {
      */
     private void setName(String n) {
         this.name = n;
+    }
+
+    public void setInput(PlayerInput inp) {
+        this.input = inp;
+    }
+
+    public PlayerInput getInput() {
+        return this.input;
     }
 
 }

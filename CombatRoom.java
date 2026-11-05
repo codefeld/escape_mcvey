@@ -1,6 +1,5 @@
 public class CombatRoom extends Room{
     private Exam exam;
-    private PlayerInput input;
 
     public CombatRoom(int type, int cr, String n, Exam ex) {
         super(type, cr, n);
@@ -42,13 +41,14 @@ public class CombatRoom extends Room{
 
             // Answer the question
             System.out.println("Enter your answer as either \'1\'', \'2\'', or \'3\': ");
-            boolean correct = exam.getQuestion(questionNum).answerQuestion(input.makeChoice(3));
+            // Double check if use PlayerINput.makeChoice() or object like I did here
+            boolean correct = exam.getQuestion(questionNum).answerQuestion(PlayerInput.makeChoice(3));
 
             if(correct) {
                 System.out.println("That's correct!");
-                player.changeGPA(0.5f);  
+                //player.setGPA(player.getGPA() + 0.25f);  
             } else {
-                player.changeGPA(-0.3f);
+                //player.changeGPA(player.getGPA() - 0.25f);
             }
 
             // MOve to next question

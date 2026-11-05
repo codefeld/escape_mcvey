@@ -65,19 +65,19 @@ public class Exam {
      */
     public void addQuestion(Question q) {
         // If the question is valid and there is still room, add it
-        if (q != null && questions.size() < this.numQuestions) {
+        if (q != null) {
             this.questions.add(q);
+            setNumQuestions(getNumQuestions() + 1);
         }
-        setNumQuestions(getNumQuestions() + 1);
     }
 
     /**
      * Get question by the ist INDEX
-     * @param questNum The index
+     * @param questNum The index of the question
      * @return
      */
     public Question getQuestion(int questNum) {
-        return questions.get(questNum + 1);
+        return questions.get(questNum);
     }
 
     public void setQuestionFileName(String file) {
