@@ -5,11 +5,16 @@ public class PuzzleOption {
 	private String happyTaskDesc;
 	private String studyTaskDesc;
 	private int optionHappyOrStudy; // happy => 0   study => 1
+	private Player player;
 
 
 	// Getters and Setters
 	public String getName() {
 		return this.name;
+	}
+
+	public void setPlayer(Player externalPlayer) {
+		this.player = externalPlayer;
 	}
 
 	public String getHappyTaskDesc() {
@@ -27,16 +32,12 @@ public class PuzzleOption {
 	// Other Methods
 	public void resolveOption() {
 		if (this.optionHappyOrStudy == 0) {
-			// TODO: get Player happiness and increase
-			System.out.println("Increased player's Happiness.");
-			// TODO: get Player GPA and decrease
-			System.out.println("Decreased player's GPA.");
+			player.setHappiness(player.getHappiness() + 1);
+			player.setGpa(player.getGpa() - 0.5);
 		}
 		else if (this.optionHappyOrStudy == 1) {
-			// TODO: get Player GPA and increase
-			System.out.println("Increased player's GPA.");
-			// TODO: get Player happiness and decrease
-			System.out.println("Decreased player's Happiness.");
+			player.setHappiness(player.getHappiness() - 1);
+			player.setGpa(player.getGpa() + 0.5);
 		}
 	}
 }
