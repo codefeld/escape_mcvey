@@ -21,6 +21,19 @@ public class Exam {
 
     }
 
+    /**
+     * Constrcutor that intializes file and blank list of questions
+     * @param file The name of teh file to get questions from
+     */
+    public Exam() {
+        setNumQuestions(0);
+        setQuestionFileName("");
+        // Create **empty** ArrayList of Questions
+        // Add individual questions using addQuestion() method
+        setQuestions(new ArrayList<Question>());
+
+    }
+
     // Methods
     /**
      * Dispalys the question specified

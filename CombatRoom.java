@@ -69,6 +69,8 @@ public class CombatRoom extends Room{
             questionNum++;
         }
 
+        //player.
+
         System.out.println("You completed the exam! Time to leave.");
     }
 
