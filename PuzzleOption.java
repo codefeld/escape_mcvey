@@ -2,9 +2,11 @@ public class PuzzleOption {
 
 	// Instance Properties
 	private String name;
-	private String happyTaskDesc;
-	private String studyTaskDesc;
+	// private String happyTaskDesc;
+	// private String studyTaskDesc;
+	private String taskDesc;
 	private int optionHappyOrStudy; // happy => 0   study => 1
+	private Player player;
 
 
 	// Getters and Setters
@@ -12,12 +14,20 @@ public class PuzzleOption {
 		return this.name;
 	}
 
-	public String getHappyTaskDesc() {
-		return this.happyTaskDesc;
+	public void setName(String externalName) {
+		this.name = externalName;
 	}
 
-	public String getStudyTaskDesc() {
-		return this.studyTaskDesc;
+	public void setPlayer(Player externalPlayer){
+		this.player = externalPlayer;
+	}
+
+	public String getTaskDesc() {
+		return this.taskDesc;
+	}
+
+	public void setTaskDesc(String externalTaskDesc) {
+		this.taskDesc = externalTaskDesc;
 	}
 
 	public void setHappyOrStudy(int setting) {
@@ -25,18 +35,20 @@ public class PuzzleOption {
 	}
 
 	// Other Methods
+
+	// NOTE: In the final game, Puzzle Options will be instantiated in the GameRun class. When it is, the Player object will
+	// be passed through .setPlayer() so that the GPA and Happiness can be altered and accessed. As of right now, since the Options
+	// are temporarily being instantiated inside the PuzzleRoom class's runRoom() method, we do not pass through the Player.
 	public void resolveOption() {
 		if (this.optionHappyOrStudy == 0) {
-			// TODO: get Player happiness and increase
-			System.out.println("Increased player's Happiness.");
-			// TODO: get Player GPA and decrease
-			System.out.println("Decreased player's GPA.");
+			// player.setHappiness(player.getHappiness() + 1);
+			// player.setGpa(player.getGpa() - 0.5);
+			System.out.print("TODO: resolve the option");
 		}
 		else if (this.optionHappyOrStudy == 1) {
-			// TODO: get Player GPA and increase
-			System.out.println("Increased player's GPA.");
-			// TODO: get Player happiness and decrease
-			System.out.println("Decreased player's Happiness.");
+			// player.setHappiness(player.getHappiness() - 1);
+			// player.setGpa(player.getGpa() + 0.5);
+			System.out.print("TODO: resolve the option");
 		}
 	}
 }
