@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class PuzzleRoom extends Room {
 
 	// Instance Properties
-	private ArrayList<PuzzleOption> options;
+	private ArrayList<PuzzleOption> options = new ArrayList<>();
 
 	// Abstract Methods
 	@Override
