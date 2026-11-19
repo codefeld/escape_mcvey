@@ -29,7 +29,7 @@ public class PuzzleRoom extends Room {
 	public void printOptions() {
 		System.out.println("Here are your options: ");
 		for (int i = 0; i < options.size(); i++){
-			System.out.println(Integer.toString(i + 1) + ") " + options.get(i).getName());
+			System.out.println(Integer.toString(i + 1) + ") " + options.get(i).getTaskDesc());
 		}
 	}
 
