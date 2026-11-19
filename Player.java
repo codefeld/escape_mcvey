@@ -42,7 +42,7 @@ public class Player {
         if(this.creditHours < 0){this.creditHours = 0;}
     }
 
-    public void addNotes(String newNote) {
+    public void addNote(String newNote) {
         studyNotes.add(newNote);
     }
 
