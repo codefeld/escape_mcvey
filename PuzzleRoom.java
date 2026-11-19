@@ -51,6 +51,7 @@ public class PuzzleRoom extends Room {
 		tempHappyOption.setTaskDesc("Go to Brick Street and party for the rest of the night");
 		tempHappyOption.setHappinessFactor(1);
 		tempHappyOption.setGpaFactor(-0.5);
+		tempHappyOption.setResolveMessage("You spend the night at Brick Street and have a great time with your friends. However, that morning, as a result of your hangover, you forgot some of the knowledge you learned in class (and some of the freaky stuff you did last night too...).");
 		addOption(tempHappyOption);
 
 		PuzzleOption tempStudyOption = new PuzzleOption();

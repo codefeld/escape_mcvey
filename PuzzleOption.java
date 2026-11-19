@@ -26,8 +26,8 @@ public class PuzzleOption {
 		this.taskDesc = externalTaskDesc;
 	}
 
-	public String getResolveMessage() {
-		return this.resolveMessage;
+	public void printResolveMessage() {
+		System.out.println(resolveMessage);
 	}
 
 	public void setResolveMessage(String externalResolveMessage) {
@@ -62,5 +62,6 @@ public class PuzzleOption {
 	public void resolveOption(Player player) {
 		player.setHappiness(player.getHappiness() + this.happinessFactor);
 		player.setGpa(player.getGpa() + this.gpaFactor);
+		printResolveMessage();
 	}
 }
