@@ -1,6 +1,3 @@
-
-import java.util.ArrayList;
-
 public class Player {
     protected double gpa;
     protected int happiness;
@@ -14,7 +11,6 @@ public class Player {
         this.setGpa(3.0 / ifHard);
         this.setHappiness(30 / ifHard);
         this.inventory = new Item[ITEM_TYPES];
-        this.studyNotes = new ArrayList<>();
     }
 
     
@@ -43,7 +39,7 @@ public class Player {
 
     /**
      * 
-     * @param itemID corresponds to an item type, tbd by the method caller
+     * @param itemID universal id corresponds to an item type
      * 
      */
     public void addItem(int itemID) {
@@ -55,9 +51,15 @@ public class Player {
         }
     }
 
+    /**
+     * 
+     * @param itemID universal id that corresponds to an item type
+     * @param subtract amount of given item removed. 0 to check without removing
+     * @return true if successful, false if not. 
+     */
     public boolean removeItem(int itemID, int subtract) {
         Item target = inventory[itemID];
-        if (target == null || target.count < subtract) {
+        if (target == null || target.count < subtract || target.count == 0) {
             return false;
         }
         target.count -= subtract;
