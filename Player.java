@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 public class Player {
     protected double gpa;
     protected int happiness;
@@ -36,6 +39,11 @@ public class Player {
         if(this.creditHours < 0){this.creditHours = 0;}
     }
 
+    /**
+     * 
+     * @param itemID corresponds to an item type, tbd by the method caller
+     * 
+     */
     public void addItem(int itemID) {
         Item target = inventory[itemID];
         if (target == null) {
@@ -54,8 +62,10 @@ public class Player {
         return true;
     }
 
+    
     private class Item {
         int count;
+        ArrayList<String> names;  // unused, open for change
         public Item() {
             count = 1;
         }
