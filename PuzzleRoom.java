@@ -67,7 +67,7 @@ public class PuzzleRoom extends Room {
 		int userSelection = PlayerInput.makeChoice(2);
 		PuzzleOption selectedOption = getPuzzleOption(userSelection);
 		System.out.println("You have chosen Option " + Integer.toString(userSelection + 1) + ".");
-		selectedOption.resolveOption();
+		selectedOption.resolveOption(player);
 		System.out.println("Good job in this room. Let's see if you make the right call...");
 	}
 }
