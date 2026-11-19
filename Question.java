@@ -23,12 +23,11 @@ public class Question {
      * @param quest The question to be asked
      * @param answers The question asnwers
      * @param id The question ID
-     * @param correct The correct answer number
+     * @param correct The correct answer number (starting at 1)
      */
-    public Question(String quest, int id, String a1, String a2, String a3, int correct) {
+    public Question(String quest, int id, int correct) {
         this.id = id;
         setQuestiontext(quest);
-        
         setCorrectAnswer(correct);
     }
 
@@ -36,7 +35,7 @@ public class Question {
      * The empty constructor
      */
     public Question(int id) {
-        this("", id, "", "", "", 1);
+        this("", id, 1);
     }
 
     // Methods
@@ -77,18 +76,23 @@ public class Question {
         this.questionText = s;
     }
 
-    public void addQuestion(String quest) {
+    public void addAnswerOption(String quest) {
         this.answers.add(quest);
         this.numOptions++;
     }
 
-    public void removeQuestion(String quest) {
+    public void removeAnswerOption(String quest) {
         this.answers.remove(quest);
         this.numOptions--;
     }
 
     public int getCorrectAnswer() {
         return this.correctAnswer;
+    }
+
+    // Get by answer number, not index
+    public String getAnswerOption(int num) {
+        return this.answers.get(num - 1);
     }
 
     public void setCorrectAnswer(int answer) {

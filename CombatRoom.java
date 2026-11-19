@@ -7,9 +7,18 @@ public class CombatRoom extends Room{
     }
 
     public CombatRoom() {
-        Question q = new Question("How old am I?", 1, "12", "54", "20", 3);
-        Question q2 = new Question("What year is it?", 2, "1776", "2026", "1812", 2);
-        Question q3 = new Question("Who is the professor?", 3,  "Kaylynn Borror", "Kaylynn Boring", "Katelynn Border", 1);
+        Question q = new Question("How old am I?", 1, 3);
+        q.addAnswerOption("12");
+        q.addAnswerOption("54");
+        q.addAnswerOption("20");
+        Question q2 = new Question("What year is it?", 2, 2);
+        q.addAnswerOption("1776");
+        q.addAnswerOption("2026");
+        q.addAnswerOption("1812");
+        Question q3 = new Question("Who is the professor?", 3, 1);
+        q.addAnswerOption("Kaylynn Borror");
+        q.addAnswerOption("Kaylynn Boring");
+        q.addAnswerOption("Katelynn Border");
         Exam e = new Exam("file");
         e.addQuestion(q);
         e.addQuestion(q2);
