@@ -6,13 +6,16 @@ public class Player {
     protected int happiness;
     protected Item[] inventory; // ArrayList<Item> inventory;
     protected double creditHours;
+    ArrayList<String> studyNotes;
     final int ITEM_TYPES = 4;
+
     public Player(boolean isHard){
         int ifHard = isHard?2:1;
         this.setCreditHours(0);
         this.setGpa(3.0 / ifHard);
         this.setHappiness(30 / ifHard);
-        this.inventory = new Item[ITEM_TYPES];  // ArrayList<>();
+        this.inventory = new Item[ITEM_TYPES];
+        this.studyNotes = new ArrayList<>();
     }
 
     
@@ -39,6 +42,22 @@ public class Player {
         if(this.creditHours < 0){this.creditHours = 0;}
     }
 
+    public void addNotes(String newNote) {
+        studyNotes.add(newNote);
+    }
+
+    public int countNotes() {
+        return studyNotes.size();
+    }
+
+    public String getNote(int x) {
+        return studyNotes.get(x - 1);
+    }
+
+    public void clearNotes() {
+        studyNotes.clear();
+    }
+
     /**
      * 
      * @param itemID corresponds to an item type, tbd by the method caller
@@ -62,13 +81,28 @@ public class Player {
         return true;
     }
 
-    
     private class Item {
         int count;
-        ArrayList<String> names;  // unused, open for change
         public Item() {
             count = 1;
         }
     }
+
+
+    //StudyNotes class unnecessary atm
+    /* 
+    private class StudyNotes {
+
+        ArrayList<String> notes;
+        public StudyNotes() {
+            description = new ArrayList<>();
+            description.add();
+        }
+
+        public void clear() {
+            
+        }
+    }
+    */
 
 }
