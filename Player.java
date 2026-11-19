@@ -1,15 +1,20 @@
+
+import java.util.ArrayList;
+
 public class Player {
     protected double gpa;
     protected int happiness;
     protected Item[] inventory; // ArrayList<Item> inventory;
     protected double creditHours;
     final int ITEM_TYPES = 4;
+
     public Player(boolean isHard){
         int ifHard = isHard?2:1;
         this.setCreditHours(0);
         this.setGpa(3.0 / ifHard);
         this.setHappiness(30 / ifHard);
-        this.inventory = new Item[ITEM_TYPES];  // ArrayList<>();
+        this.inventory = new Item[ITEM_TYPES];
+        this.studyNotes = new ArrayList<>();
     }
 
     
@@ -36,6 +41,11 @@ public class Player {
         if(this.creditHours < 0){this.creditHours = 0;}
     }
 
+    /**
+     * 
+     * @param itemID corresponds to an item type, tbd by the method caller
+     * 
+     */
     public void addItem(int itemID) {
         Item target = inventory[itemID];
         if (target == null) {
@@ -60,5 +70,22 @@ public class Player {
             count = 1;
         }
     }
+
+
+    // vvv not needed atm vvv
+    /*
+    private class StudyNotes {
+        int id;
+        String[] notes;
+        public StudyNotes() {
+            description = ;
+            description.add();
+        }
+
+        public void clear() {
+            
+        }
+    }
+    */
 
 }
