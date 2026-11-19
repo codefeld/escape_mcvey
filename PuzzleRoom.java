@@ -49,13 +49,16 @@ public class PuzzleRoom extends Room {
 		PuzzleOption tempHappyOption = new PuzzleOption();
 		tempHappyOption.setName("Brick Street");
 		tempHappyOption.setTaskDesc("Go to Brick Street and party for the rest of the night");
-		tempHappyOption.setHappyOrStudy(0);
+		tempHappyOption.setHappinessFactor(1);
+		tempHappyOption.setGpaFactor(-0.5);
+		tempHappyOption.setResolveMessage("You spend the night at Brick Street and have a great time with your friends. However, that morning, as a result of your hangover, you forgot some of the knowledge you learned in class (and some of the freaky stuff you did last night too...).");
 		addOption(tempHappyOption);
 
 		PuzzleOption tempStudyOption = new PuzzleOption();
 		tempStudyOption.setName("Study");
 		tempStudyOption.setTaskDesc("Study for your upcoming battle with Professor Boring");
-		tempStudyOption.setHappyOrStudy(1);
+		tempHappyOption.setHappinessFactor(-1);
+		tempHappyOption.setGpaFactor(0.5);
 		addOption(tempStudyOption);
 
 		System.out.println("You have just entered the puzzle room.");
@@ -67,7 +70,7 @@ public class PuzzleRoom extends Room {
 		int userSelection = PlayerInput.makeChoice(2);
 		PuzzleOption selectedOption = getPuzzleOption(userSelection);
 		System.out.println("You have chosen Option " + Integer.toString(userSelection + 1) + ".");
-		selectedOption.resolveOption();
+		selectedOption.resolveOption(player);
 		System.out.println("Good job in this room. Let's see if you make the right call...");
 	}
 }
