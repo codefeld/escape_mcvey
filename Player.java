@@ -6,7 +6,6 @@ public class Player {
     protected int happiness;
     protected Item[] inventory; // ArrayList<Item> inventory;
     protected double creditHours;
-    ArrayList<String> studyNotes;
     final int ITEM_TYPES = 4;
 
     public Player(boolean isHard){
@@ -42,22 +41,6 @@ public class Player {
         if(this.creditHours < 0){this.creditHours = 0;}
     }
 
-    public void addNote(String newNote) {
-        studyNotes.add(newNote);
-    }
-
-    public int countNotes() {
-        return studyNotes.size();
-    }
-
-    public String getNote(int x) {
-        return studyNotes.get(x - 1);
-    }
-
-    public void clearNotes() {
-        studyNotes.clear();
-    }
-
     /**
      * 
      * @param itemID corresponds to an item type, tbd by the method caller
@@ -89,13 +72,13 @@ public class Player {
     }
 
 
-    //StudyNotes class unnecessary atm
-    /* 
+    // vvv not needed atm vvv
+    /*
     private class StudyNotes {
-
-        ArrayList<String> notes;
+        int id;
+        String[] notes;
         public StudyNotes() {
-            description = new ArrayList<>();
+            description = ;
             description.add();
         }
 
