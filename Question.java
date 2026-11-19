@@ -1,11 +1,17 @@
+import java.util.ArrayList;
+
 public class Question {
     // The written question
     private String questionText;
+    private int id;
+    private int numOptions;
 
     // The 3 potential answers
-    private String answer1;
-    private String answer2;
-    private String answer3;
+    // private String answer1;
+    // private String answer2;
+    // private String answer3;
+    private ArrayList<String> answers;
+    
 
     // the correct answer (1-3)
     private int correctAnswer;
@@ -15,38 +21,40 @@ public class Question {
     /**
      * The constructor that initializes all isntance properties as specified
      * @param quest The question to be asked
-     * @param a1 The first answer option
-     * @param a2 The second answer option
-     * @param a3 The third answer option
+     * @param answers The question asnwers
+     * @param id The question ID
      * @param correct The correct answer number
      */
-    public Question(String quest, String a1, String a2, String a3, int correct) {
+    public Question(String quest, int id, String a1, String a2, String a3, int correct) {
+        this.id = id;
         setQuestiontext(quest);
-        setAnswer1(a1);
-        setAnswer2(a2);
-        setAnswer3(a3);
+        
         setCorrectAnswer(correct);
     }
 
     /**
      * The empty constructor
      */
-    public Question() {
-        this("", "", "", "", 1);
+    public Question(int id) {
+        this("", id, "", "", "", 1);
     }
 
     // Methods
     /**    
      * Gives a foramtted String of the Question in the following format:
      * Question
-     * Answer1
-     * Answer2
-     * Answer3
+     * 1. Answer1
+     * 2. Answer2
+     * 3. Answer3 etc.
      * @return the formatted String
      */
     @Override
     public String toString() {
-        String str = String.format("%s \n%s \n%s \n%s", this.getQuestionText(), this.getAnswer1(), this.getAnswer2(), this.getAnswer3());
+        String str = this.getQuestionText();
+        int num = 1;
+        for (String stri : answers) {
+            str += String.format("\n%d. %s ", num, stri);
+        }
         return str;
     }
 
@@ -69,28 +77,14 @@ public class Question {
         this.questionText = s;
     }
 
-    public String getAnswer1() {
-        return this.answer1;
+    public void addQuestion(String quest) {
+        this.answers.add(quest);
+        this.numOptions++;
     }
 
-    public void setAnswer1(String s) {
-        this.answer1 = "1. " + s;
-    }
-
-    public String getAnswer2() {
-        return this.answer2;
-    }
-
-    public void setAnswer2(String s) {
-        this.answer2 = "2. " + s;
-    }
-
-    public String getAnswer3() {
-        return this.answer3;
-    }
-
-    public void setAnswer3(String s) {
-        this.answer3 = "3. " + s;
+    public void removeQuestion(String quest) {
+        this.answers.remove(quest);
+        this.numOptions--;
     }
 
     public int getCorrectAnswer() {
@@ -98,14 +92,22 @@ public class Question {
     }
 
     public void setCorrectAnswer(int answer) {
-        // Only allow valid answer options (1-3)
-        if(answer > 0 && answer < 4) {
+        // Only allow valid answer options 
+        if(answer > 0 && answer < this.answers.size()) {
             this.correctAnswer = answer;
         } else {
             // Default
             this.correctAnswer = 1;
         }
         
+    }
+
+    public int getNumOptions() {
+        return this.numOptions;
+    }
+
+    public int getID() {
+        return this.id;
     }
 
 }
